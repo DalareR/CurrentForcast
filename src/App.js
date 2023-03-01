@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Home from "./components/home";
+import NavBar from "./components/navBar";
+import { ThemeProvider } from "styled-components";
+import { GlobalStyle } from "./components/createGlobalStyle.js";
+import { lightTheme, darkTheme } from "./components/theme.js";
+import { useState } from "react";
 
 function App() {
+  const [theme, setTheme] = useState("dark");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+      <GlobalStyle />
+      <div id="app-container">
+        <NavBar theme={theme} setTheme={setTheme} />
+        <Home theme={theme} />
+      </div>
+    </ThemeProvider>
   );
 }
 
