@@ -46,7 +46,6 @@ export default function Home({ theme }) {
           )
           .then((response) => {
             const forecast = response.data[0];
-            console.log(response);
             setCityData({
               location: cityInput,
               temp: forecast.Temperature.Imperial.Value,
