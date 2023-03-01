@@ -35,14 +35,14 @@ export default function Home({ theme }) {
     const key = "ToFgXdvVA7Et8puwG3W4qffJ07HAssFh";
     const cityKeyLink = axios
       .get(
-        `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${key}&q=${city}`
+        `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${key}&q=${city}`
       )
       .then((response) => {
         const locationName = response.data[0].LocalizedName;
         setCityName(locationName);
         axios
           .get(
-            `http://dataservice.accuweather.com/currentconditions/v1/${response.data[0].Key}?apikey=${key}`
+            `https://dataservice.accuweather.com/currentconditions/v1/${response.data[0].Key}?apikey=${key}`
           )
           .then((response) => {
             const forecast = response.data[0];
