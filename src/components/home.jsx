@@ -14,7 +14,8 @@ const Card = styled.form`
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: rgb(214, 214, 214);
+  background-color: ${({ theme }) =>
+    theme === "light" ? "rgb(214, 214, 214)" : "rgb(35, 35, 35)"};
   border-radius: 10px;
   transition: all 0.5s ease;
 `;
@@ -65,11 +66,7 @@ export default function Home({ theme }) {
 
   return (
     <div className="card-wrapper">
-      <Card
-        className={theme === "light" ? "card" : "card card--dark"}
-        cityName={cityName}
-        onSubmit={handleFormSubmit}
-      >
+      <Card theme={theme} cityName={cityName} onSubmit={handleFormSubmit}>
         <div className={cityName ? "card__info" : "hide"}>
           <h2 className="temperature">{cityData.temp} &#176;F</h2>
           <h3 className="location">{cityName}</h3>

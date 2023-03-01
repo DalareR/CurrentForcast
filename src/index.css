@@ -112,10 +112,6 @@ h4 {
   transition: all 0.5s ease;
 }
 
-.card--dark {
-  background-color: rgb(35, 35, 35);
-}
-
 .card__info {
   flex: 1;
   transition: all 0.5s ease;
