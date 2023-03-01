@@ -1,5 +1,23 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+
+const Card = styled.form`
+  height: ${({ cityName }) => (cityName ? "auto" : 0)};
+  min-width: 300px;
+  min-height: ${({ cityName }) => (cityName ? "300px" : 0)};
+  max-width: 400px;
+  max-height: 400px;
+  padding: ${({ cityName }) => (cityName ? "30px" : 0)};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(214, 214, 214);
+  border-radius: 10px;
+  transition: all 0.5s ease;
+`;
 
 export default function Home({ theme }) {
   const [cityInput, setCityInput] = useState("");
@@ -13,7 +31,7 @@ export default function Home({ theme }) {
   const weatherIcon = `/images/icons/${cityData.icon}.svg`;
 
   function getCityKey(city) {
-    const key = "aFw9vFGpUQeKudN09xAXiOIseNxG2moh";
+    const key = "ToFgXdvVA7Et8puwG3W4qffJ07HAssFh";
     const cityKeyLink = axios
       .get(
         `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${key}&q=${city}`
@@ -47,8 +65,9 @@ export default function Home({ theme }) {
 
   return (
     <div className="card-wrapper">
-      <form
+      <Card
         className={theme === "light" ? "card" : "card card--dark"}
+        cityName={cityName}
         onSubmit={handleFormSubmit}
       >
         <div className={cityName ? "card__info" : "hide"}>
@@ -66,7 +85,7 @@ export default function Home({ theme }) {
           }
           placeholder="Enter City Name"
         ></input>
-      </form>
+      </Card>
     </div>
   );
 }

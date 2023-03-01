@@ -17,7 +17,7 @@ const ThemeButton = styled.div`
 export default function NavBar({ theme, setTheme }) {
   return (
     <div id="navBar-Container">
-      <h3 className="navBar__title">Weather</h3>
+      <h3 className="navBar__title">Current Forcast.</h3>
       <div
         className="theme__toggle-container"
         onClick={() =>
