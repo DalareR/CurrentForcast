@@ -138,10 +138,16 @@ h4 {
 
 .card__input::placeholder {
   text-align: center;
-  color: rgb(184, 184, 184);
+  color: rgb(80, 80, 80);
+  font-size: 1rem;
 }
 
 .card__input--dark {
   background-color: rgb(66, 66, 66);
   color: white;
+}
+
+.card__input--dark::placeholder {
+  color: rgb(184, 184, 184);
+  font-size: 1rem;
 }
